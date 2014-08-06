@@ -67,13 +67,22 @@ describe "PostPages" do
     
     before { FactoryGirl.create(:post, user: user) }
 
-    describe "as correct user" do
+    describe "as correct user from content" do
       before { visit content_path }
 
       it "should delete a post" do
         expect { click_link "delete" }.to change(Post, :count).by(-1)
       end
     end
+ 
+     describe "as correct user from home" do
+      before { visit root_path }
+
+      it "should delete a post" do
+        expect { click_link "delete" }.to change(Post, :count).by(-1)
+      end
+    end
+ 
   end
   
 end

@@ -1,4 +1,5 @@
 module PostsHelper
+=begin
   def wrap(content)
     sanitize(raw(content.split.map{ |s| wrap_long_string(s) }.join(' ')))
   end
@@ -11,4 +12,5 @@ module PostsHelper
       (text.length < max_width) ? text :
                                   text.scan(regex).join(zero_width_space)
     end
+=end
 end
