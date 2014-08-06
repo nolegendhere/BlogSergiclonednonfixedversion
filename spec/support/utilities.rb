@@ -1,4 +1,5 @@
-include ApplicationHelper
+include ApplicationHelper #full_title
+
 
 def valid_signin(user)
   fill_in "Email",    with: user.email

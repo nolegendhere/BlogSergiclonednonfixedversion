@@ -20,6 +20,14 @@ FactoryGirl.define do
       admin true
     end
   end
+  
+  factory :post do
+    title "Prueba"
+    content "Lorem ipsum"
+    user
+  end
+
+  
 end
 
 

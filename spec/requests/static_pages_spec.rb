@@ -11,7 +11,6 @@ describe "Static pages" do
     it { should have_title(full_title('Home')) }
 
   end
-  
 end
 
 

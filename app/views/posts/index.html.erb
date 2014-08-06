@@ -1,0 +1,11 @@
+<% provide(:title, "Content") %>
+<div class="row">
+<div class="span8">
+<%= will_paginate @posts%>
+	  
+      <ol class="userposts">
+        <%= render @posts %>
+      </ol>
+<%= will_paginate @posts%>
+</div>
+</div>

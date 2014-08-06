@@ -1,11 +1,23 @@
 <% provide(:title, 'Home') %>
-<div class="center hero-unit">
-  <h1>Blog Sergi</h1>
-
-  <h2>
-    This is the home page for the Sergi's blog
-  </h2>
-
-</div>
+<% if signed_in? %>
+	<div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/post_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+	<div class="center hero-unit">
+	  <h1>Blog Sergi</h1>
+	
+	  <h2>
+	    This is the home page for the Sergi's blog
+	  </h2>
+	</div>
+<% end %>
 
 

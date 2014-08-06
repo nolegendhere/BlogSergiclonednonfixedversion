@@ -6,8 +6,7 @@ namespace :db do
                          password: "foobar",
                          password_confirmation: "foobar",
                          admin: true)
-
-    99.times do |n|
+    10.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@railstutorial.org"
       password  = "password"
@@ -16,5 +15,13 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+    
+    3.times do
+      title = "Hola"
+      content = Faker::Lorem.sentence(5)
+      admin.posts.create!(title: title, 
+                         content: content)
+    end   
+        
   end
 end
