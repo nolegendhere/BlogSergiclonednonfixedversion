@@ -33,4 +33,5 @@ class PostsController < ApplicationController
       redirect_to root_url if @post.nil?
     end
 
+
 end

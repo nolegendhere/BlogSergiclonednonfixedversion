@@ -1,8 +1,9 @@
 BlogSergi::Application.routes.draw do
   
-  resources :users
+  resources :users 
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts, only: [:create, :destroy, :index]
+  resources :comments, only: [:create, :destroy, :index]
   #get "static_pages/home"
   #match '/', to: 'static_pages#home', via: 'get'
   root  'static_pages#home'
@@ -10,6 +11,10 @@ BlogSergi::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/content', to: 'posts#index',          via: 'get'
+  
+  match 'users/makeadmin/:id', to: 'users#make_admin',               via: 'get', as: :make_admin
+  match 'users/makecoadmin/:id', to: 'users#make_coadmin',           via: 'get', as: :make_coadmin
+  match 'users/makecolaborator/:id', to: 'users#make_colaborator',   via: 'get', as: :make_colaborator
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

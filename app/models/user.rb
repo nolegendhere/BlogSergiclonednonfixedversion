@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
     # This is preliminary. See "Following users" for the full implementation.
     Post.where("user_id = ?", id)
   end
+  
 
   private
 

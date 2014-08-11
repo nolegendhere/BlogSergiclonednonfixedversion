@@ -9,6 +9,7 @@ describe "PostPages" do
     let(:user) { FactoryGirl.create(:user) }
     let!(:m1) { FactoryGirl.create(:post, user: user, title: "Prueba", content: "Foo") }
     let!(:m2) { FactoryGirl.create(:post, user: user, title: "Prueba2",content: "Bar") }
+ 
 
     before { visit posts_path }
 

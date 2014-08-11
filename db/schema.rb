@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805103455) do
+ActiveRecord::Schema.define(version: 20140811173406) do
+
+  create_table "comments", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.string   "content"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -31,6 +42,8 @@ ActiveRecord::Schema.define(version: 20140805103455) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.boolean  "coadmin",         default: false
+    t.boolean  "colaborator",     default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

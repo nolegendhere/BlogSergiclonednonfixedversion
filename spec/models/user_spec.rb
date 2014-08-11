@@ -19,10 +19,12 @@ describe User do
   it { should respond_to(:admin) }
   it { should respond_to(:posts) }
   it { should respond_to(:feed) }
+  it { should respond_to(:coadmin) }
 
 
   it { should be_valid }
   it { should_not be_admin }
+  it { should_not be_coadmin }
   
   describe "with admin attribute set to 'true'" do
     before do
@@ -31,6 +33,15 @@ describe User do
     end
 
     it { should be_admin }
+  end
+  
+  describe "with coadmin attribute set to 'true'" do
+    before do
+      @user.save!
+      @user.toggle!(:coadmin)
+    end
+
+    it { should be_coadmin }
   end
 
   describe "when name is not present" do

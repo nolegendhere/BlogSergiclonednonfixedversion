@@ -19,6 +19,10 @@ FactoryGirl.define do
     factory :admin do
       admin true
     end
+    
+    factory :coadmin do
+      coadmin true
+    end
   end
   
   factory :post do
