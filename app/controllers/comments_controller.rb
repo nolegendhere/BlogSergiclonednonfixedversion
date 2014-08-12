@@ -10,15 +10,17 @@ class CommentsController < ApplicationController
     
     if @comment.save
       flash[:success] = "Comment created!"
-      redirect_to root_url
+      redirect_to posts_url
     else
       render 'static_pages/home'
     end
   end
   
   def destroy
-    
+    Comment.find(params[:id]).destroy
+    redirect_to posts_url
   end
+
   
   def index
     
