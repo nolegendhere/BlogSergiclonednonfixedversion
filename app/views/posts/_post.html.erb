@@ -9,5 +9,14 @@
                                      data: { confirm: "You sure?" },
                                      title: post.content %>
   <% end %>
+  <div class="row">
+	<div class="span4">
+		<ol class="usercomments">
+		        <%= render post.comments %>
+		</ol>
+	</div>
+	<div class="span8">
+		<%= render partial: "comments/form", locals: {post: post} %>
+	</div>
+  </div>
 </li>
-

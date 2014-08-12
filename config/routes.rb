@@ -1,9 +1,10 @@
 BlogSergi::Application.routes.draw do
   
-  resources :users 
+  resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :posts, only: [:create, :destroy, :index]
+  resources :posts,  only: [:create, :destroy, :index] 
   resources :comments, only: [:create, :destroy, :index]
+ 
   #get "static_pages/home"
   #match '/', to: 'static_pages#home', via: 'get'
   root  'static_pages#home'
