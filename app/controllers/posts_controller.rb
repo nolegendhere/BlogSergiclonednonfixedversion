@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :signed_in_user, only: [:create, :destroy,:edit, :update]
+  before_action :correct_user,   only: [:destroy,:edit, :update]
 
   def index
     @posts = Post.paginate(page: params[:page])
@@ -21,6 +21,22 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to root_url
   end
+  
+  def edit 
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+   
+    if @post.update(post_params)
+      flash[:success] = "Post updated"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
+  end
+
 
   private
 
