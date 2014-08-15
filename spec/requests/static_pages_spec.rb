@@ -11,7 +11,7 @@ describe "Static pages" do
     it { should have_title(full_title('Home')) }
     
     describe "for signed-in users" do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) { FactoryGirl.create(:admin) }
       before do
         FactoryGirl.create(:post, user: user, title: "Prueba", content: "Lorem ipsum")
         FactoryGirl.create(:post, user: user, title: "Prueba2", content: "Dolor sit amet")
@@ -20,6 +20,7 @@ describe "Static pages" do
       end
 
       it "should render the user's feed" do
+        #save_and_open_page
         user.feed.each do |item|
           expect(page).to have_content(item.content)
         end

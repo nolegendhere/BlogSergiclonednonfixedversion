@@ -1,6 +1,7 @@
 include ApplicationHelper #full_title
 
 
+
 def valid_signin(user)
   fill_in "Email",    with: user.email
   fill_in "Password", with: user.password
@@ -27,3 +28,10 @@ def sign_in(user, options={})
     click_button "Sign in"
   end
 end
+
+def rendered
+    Capybara.string(@rendered)
+end
+
+
+

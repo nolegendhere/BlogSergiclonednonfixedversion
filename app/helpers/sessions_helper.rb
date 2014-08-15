@@ -10,7 +10,7 @@ module SessionsHelper
     !current_user.nil?
   end
   
-  def current_user=(user)
+   def current_user=(user)
     @current_user = user
   end
 
@@ -48,9 +48,12 @@ module SessionsHelper
   end
   
   def admin_user
-      redirect_to(root_url) unless current_user.admin?
+    if current_user.admin?
+      return true
+    else
+      redirect_to(root_url)
+    end
+      #redirect_to(root_url) unless current_user.admin?
   end
- 
-  
-  
+    
 end

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy,:edit, :update]
-  before_action :correct_user,   only: [:destroy,:edit, :update]
+  #before_action :correct_user,   only: [:destroy,:edit, :update]
+  before_action :admin_user,   only: [:create,:destroy,:edit, :update]
 
   def index
     @posts = Post.paginate(page: params[:page])
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    Post.find(params[:id]).destroy
     redirect_to root_url
   end
   
@@ -48,6 +49,5 @@ class PostsController < ApplicationController
       @post = current_user.posts.find_by(id: params[:id])
       redirect_to root_url if @post.nil?
     end
-
 
 end

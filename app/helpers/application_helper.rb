@@ -9,4 +9,15 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+  
+  def admin?(user)
+    if not user.nil?
+      return user.admin
+    end
+    return false
+  end
+  
+ 
+  
+  
 end

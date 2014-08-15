@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy,:edit, :update]
-  before_action :correct_user,   only: [:destroy,:edit, :update]
+  #before_action :correct_user,   only: [:destroy,:edit, :update]
+  before_action :auth_requirements_one,   only: [:destroy,:edit, :update]
   
   def create
     #@post = Post.find(params[:post_id])
@@ -28,6 +29,10 @@ class CommentsController < ApplicationController
     
   end
   
+  def edit 
+    @comment = Comment.find(params[:id])
+  end
+  
   def update
     @comment = Comment.find(params[:id])
    
@@ -48,6 +53,22 @@ class CommentsController < ApplicationController
     def correct_user
       @comment = current_user.comments.find_by(id: params[:id])
       redirect_to root_url if @comment.nil?
+    end
+    
+    def admin?(user)
+      if not user.nil?
+        return user.admin
+      end
+        return false
+    end
+    
+    def auth_requirements_one
+      @commentuser = current_user.comments.find_by(id: params[:id])
+      if admin?(current_user) || current_user?(@commentuser)
+        return true
+      else
+        redirect_to root_url
+      end
     end
 end
 

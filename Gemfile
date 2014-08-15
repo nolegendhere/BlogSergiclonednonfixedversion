@@ -12,7 +12,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
+  #gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
 end
 
@@ -34,10 +34,13 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor', '0.0.2'
+  #gem 'pg', '0.15.1'
+  #gem 'rails_12factor', '0.0.2'
 end
 
+gem 'pg'
+gem 'rails_12factor', '0.0.2'
+gem 'launchy' #for save_and_open_page to see why capybara doesn't work with some pages/renders
 
 
 

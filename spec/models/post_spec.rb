@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Post do
+  
+  
 
   let(:user) { FactoryGirl.create(:user) }
   before do
