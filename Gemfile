@@ -42,5 +42,8 @@ gem 'pg'
 gem 'rails_12factor', '0.0.2'
 gem 'launchy' #for save_and_open_page to see why capybara doesn't work with some pages/renders
 
+group :development do
+    gem 'capistrano'
+end
 
 
