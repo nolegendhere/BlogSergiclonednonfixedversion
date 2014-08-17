@@ -44,4 +44,3 @@ gem 'launchy' #for save_and_open_page to see why capybara doesn't work with some
 
 
 
-
