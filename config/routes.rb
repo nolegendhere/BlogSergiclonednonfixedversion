@@ -13,9 +13,9 @@ BlogSergi::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/content', to: 'posts#index',          via: 'get'
   
-  match 'users/makeadmin/:id', to: 'users#make_admin',               via: 'get', as: :make_admin
-  match 'users/makecoadmin/:id', to: 'users#make_coadmin',           via: 'get', as: :make_coadmin
-  match 'users/makecolaborator/:id', to: 'users#make_colaborator',   via: 'get', as: :make_colaborator
+  #match 'users/makeadmin/:id', to: 'users#make_admin',               via: 'get', as: :make_admin
+  #match 'users/makecoadmin/:id', to: 'users#make_coadmin',           via: 'get', as: :make_coadmin
+  #match 'users/makecolaborator/:id', to: 'users#make_colaborator',   via: 'get', as: :make_colaborator
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
