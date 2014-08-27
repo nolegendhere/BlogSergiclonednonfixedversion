@@ -4,7 +4,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/db/schema.rb
+#/db/schema.rb
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
@@ -20,6 +20,7 @@ doc/
 .idea
 .secret
 Gemfile.lock
+Gemfile
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
