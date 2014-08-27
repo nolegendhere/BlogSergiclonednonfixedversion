@@ -1,5 +1,5 @@
 <small>
-	<span class="content"><%= comment.content %></span>
+	<span class="content"><%= simple_format comment.content %></span>
 	<span class="timestamp">
 	
 		Commented <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.name %>
