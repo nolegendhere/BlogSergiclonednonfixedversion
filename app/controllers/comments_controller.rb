@@ -15,7 +15,8 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment created!"
       redirect_to posts_url
     else
-      render 'static_pages/home'
+      @posts = Post.paginate(page: params[:page])
+      render 'posts/index'
     end
   end
   
