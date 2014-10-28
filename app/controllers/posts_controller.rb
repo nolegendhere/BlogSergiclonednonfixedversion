@@ -5,9 +5,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.paginate(page: params[:page])
-    if signed_in?
-      @comment = current_user.comments.build
-    end
   end
   
   def create
@@ -41,6 +38,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+    if signed_in?
+      @comment = current_user.comments.build
+    end
+  end
 
   private
 

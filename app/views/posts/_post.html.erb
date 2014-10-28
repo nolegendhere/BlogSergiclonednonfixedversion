@@ -1,6 +1,7 @@
 <li>
-  <span class="posttitle"><%= post.title %></span>
-  <span class="content"><%= simple_format post.content %></span>
+  <span class="posttitle">
+    <%= link_to post.title, post %>
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> .
   </span>
@@ -12,16 +13,4 @@
                                      data: { confirm: "You sure?" },
                                      title: post.content %>
   <% end %>                                  
-  <div class="row">
-  	<div class="span4">
-  		<ol class="usercomments">
-  		        <%= render post.comments %>
-  		</ol>
-  	</div>
-  	<div class="span8">
-      <% if signed_in?%>
-  		  <%= render partial: "comments/form", locals: {post: post} %>
-      <% end %>
-  	</div>
-  </div>
 </li>

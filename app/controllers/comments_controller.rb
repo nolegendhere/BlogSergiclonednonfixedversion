@@ -10,19 +10,22 @@ class CommentsController < ApplicationController
     
     @comment= Comment.create(comment_params)
     @comment.user_id = current_user.id
+    @post = Post.find_by_id(comment_params[:post_id])
     
     if @comment.save
       flash[:success] = "Comment created!"
-      redirect_to posts_url
+      redirect_to @post
     else
-      @posts = Post.paginate(page: params[:page])
-      render 'posts/index'
+      flash.now[:error] = "you don't have enough cash"
+      render 'posts/show'
     end
   end
   
   def destroy
-    Comment.find(params[:id]).destroy
-    redirect_to posts_url
+    @comment=Comment.find(params[:id])
+    @post= Post.find_by_id(@comment.post_id)
+    @comment.destroy
+    redirect_to @post
   end
 
   
@@ -36,10 +39,11 @@ class CommentsController < ApplicationController
   
   def update
     @comment = Comment.find(params[:id])
+    @post= Post.find_by_id(@comment.post_id)
    
     if @comment.update(comment_params)
       flash[:success] = "Comment updated"
-      redirect_to posts_url
+      redirect_to @post
     else
       render 'edit'
     end
