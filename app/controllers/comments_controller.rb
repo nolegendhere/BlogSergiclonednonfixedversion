@@ -16,7 +16,6 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment created!"
       redirect_to @post
     else
-      flash.now[:error] = "you don't have enough cash"
       render 'posts/show'
     end
   end
