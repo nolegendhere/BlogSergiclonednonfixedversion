@@ -191,5 +191,6 @@ DEPENDENCIES
   selenium-webdriver (= 2.35.1)
   sprockets (= 2.11.0)
   turbolinks (= 1.1.1)
+  tzinfo (= 0.3.42)
   uglifier (= 2.1.1)
   will_paginate (= 3.0.4)
