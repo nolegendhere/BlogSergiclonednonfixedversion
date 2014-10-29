@@ -1,6 +1,8 @@
 <li>
-  <span class="posttitle"><%= feed_item.title %></span>
-  <span class="content"><%= simple_format feed_item.content %></span>
+  <span class="posttitle">
+    <%= link_to feed_item.title, feed_item %>
+  </span>
+  <span class="content"><%= truncate(strip_tags(simple_format feed_item.content), length: 50) %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago by <%= feed_item.user.name %>.
   </span>
