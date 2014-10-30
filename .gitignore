@@ -19,8 +19,8 @@ doc/
 .DS_Store
 .idea
 .secret
-#Gemfile.lock
-#Gemfile
+Gemfile.lock
+Gemfile
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
