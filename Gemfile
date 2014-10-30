@@ -47,5 +47,7 @@ group :development do
     gem 'capistrano'
 end
 
+gem 'tzinfo', '0.3.42'
+
 
 
