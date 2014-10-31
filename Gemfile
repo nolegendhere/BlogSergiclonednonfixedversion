@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
-#ruby-gemset=railstutorial_rails_4_0
+#ruby-gemset=BlogSergi
 
 gem 'rails', '4.0.5'
 gem 'bootstrap-sass' , '2.3.2.0'
